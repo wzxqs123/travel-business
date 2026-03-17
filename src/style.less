@@ -1,0 +1,43 @@
+@import '@arco-design/web-vue/dist/arco.less';
+@import 'eon/dist/style.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 两行省略
+.ellipsis-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+// 三行省略
+.ellipsis-3 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+// 统一处理表格数据为空时展示‘-’，自定义插槽数据需要手动处理
+.arco-table-cell {
+  .arco-table-td-content {
+    &:empty::before {
+      content: '-';
+    }
+  }
+
+  .arco-auto-tooltip .arco-auto-tooltip-content {
+    &:empty::before {
+      content: '-';
+    }
+  }
+}

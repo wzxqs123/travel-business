@@ -1,0 +1,44 @@
+variables:
+  GIT_CLEAN_FLAGS: -n
+stages:
+  - package
+  - tagging
+  - notify
+
+.before_script_template:
+  before_script:
+    - export VERSION=$(node -p "require('./package.json').version")
+    - export VITE_VERSION=$(node -p "require('./package.json').version")
+build:
+  extends: .before_script_template
+  stage: package
+  script:
+    - echo -n $HARBOR_PASSWORD | docker login -u $HARBOR_USERNAME --password-stdin $HARBOR_REGISTRY
+    - |
+      curl --location --request POST 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4a567c20-5fd6-47b5-acfb-759bbb63a488' --header 'Content-Type: application/json' --data "{ \"msgtype\": \"text\",\"text\": {\"content\": \"@所有人 项目：${PROJECT_NAME} 版本:${VERSION}-${CI_COMMIT_BRANCH} 编译ID: ${CI_PIPELINE_ID} 正在编译\"}}"
+    - docker build . -t ${HARBOR_REGISTRY}/${HARBOR_GROUP}/${PROJECT_NAME}:${VERSION}-${CI_COMMIT_BRANCH}
+    - docker push ${HARBOR_REGISTRY}/${HARBOR_GROUP}/${PROJECT_NAME}:${VERSION}-${CI_COMMIT_BRANCH}
+    - |
+      curl --location --request POST 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4a567c20-5fd6-47b5-acfb-759bbb63a488' --header 'Content-Type: application/json' --data "{ \"msgtype\": \"text\",\"text\": {\"content\": \"@所有人 项目：${PROJECT_NAME} 版本:${VERSION}-${CI_COMMIT_BRANCH} 编译ID : ${CI_PIPELINE_ID} 打包完成，可以发布。\"}}"
+    - docker rmi ${HARBOR_REGISTRY}/${HARBOR_GROUP}/${PROJECT_NAME}:${VERSION}-${CI_COMMIT_BRANCH}
+    - docker logout $HARBOR_REGISTRY
+
+tagging:
+  extends: .before_script_template
+  stage: tagging
+  script:
+    - git config --global user.name "ci"
+    - git config --global user.email "ci@hixtrips.cn"
+    - git remote remove origin
+    - git remote add origin https://guocailee:eBdK7zQtByzJWxV_8pLQ@$CI_SERVER_HOST/$CI_PROJECT_PATH.git
+    - git tag -d "${PROJECT_NAME}-${CI_COMMIT_BRANCH}-${VERSION}" || true
+    - git tag "${PROJECT_NAME}-${CI_COMMIT_BRANCH}-${VERSION}"
+    - git push -f origin "${PROJECT_NAME}-${CI_COMMIT_BRANCH}-${VERSION}"
+
+notify:
+  extends: .before_script_template
+  stage: notify
+  when: on_failure
+  script:
+    - |
+      curl --location --request POST 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4a567c20-5fd6-47b5-acfb-759bbb63a488' --header 'Content-Type: application/json' --data "{ \"msgtype\": \"text\",\"text\": {\"content\": \"@所有人 项目：${PROJECT_NAME} 版本:${VERSION}-${CI_COMMIT_BRANCH} 编译ID: ${CI_PIPELINE_ID} 打包失败去看日志\"}}"
