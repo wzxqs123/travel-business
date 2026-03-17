@@ -21,7 +21,7 @@
         <div v-if="total > 0">
           <HotelItem :data="dataList"></HotelItem>
           <img
-            src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/b2b-loading.gif"
+            src="https://hx-mp-res.hitrips.cn/b2b-official-website/b2b-loading.gif"
             alt=""
             class="w-[70px] mx-auto mt-[24px]"
             v-show="loading"
@@ -37,7 +37,7 @@
         <div v-else>
           <div class="text-center">
             <img
-              src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/empty.png"
+              src="https://hx-mp-res.hitrips.cn/b2b-official-website/empty.png"
               alt=""
               class="mx-auto"
             />
@@ -59,7 +59,7 @@
         class="flex items-center justify-center pt-[50px]"
       >
         <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/b2b-loading.gif"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/b2b-loading.gif"
           alt=""
           class="w-[114px] h-[114px]"
         />

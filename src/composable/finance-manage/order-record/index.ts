@@ -29,6 +29,11 @@ export const useOrderRecord = () => {
       width: 130,
     },
     {
+      title: '外部订单号',
+      dataIndex: 'outerOrderSerialNo',
+      width: 130,
+    },
+    {
       title: '房型名称',
       slotName: 'roomTypeName',
       minWidth: 100,
@@ -77,6 +82,11 @@ export const useOrderRecord = () => {
       title: '订单号',
       dataIndex: 'orderId',
       minWidth: 100,
+    },
+    {
+      title: '外部订单号',
+      dataIndex: 'outerOrderSerialNo',
+      width: 130,
     },
     {
       title: '调账类型',

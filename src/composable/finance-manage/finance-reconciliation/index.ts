@@ -13,7 +13,7 @@ export const useFinanceReconciliation = () => {
 
   // 申请导出账单
   const billExport = (no: string) => {
-    return fetch.post<Result<any>>(`/app/${RECONCILIATION_GATEWAY}/command/b2b/bill-export/${no}`, {})
+    return fetch.post<Result<any>>(`/app/${RECONCILIATION_GATEWAY}/command/b2b/bill-export-jinke/${no}`, {})
   }
 
   // 平台确认账单已付款
@@ -37,7 +37,7 @@ export const useFinanceReconciliation = () => {
     },
     {
       title: '结算周期',
-      dataIndex: 'periodType',
+      slotName: 'periodType',
       width: 100,
     },
     {

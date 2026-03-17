@@ -1,7 +1,7 @@
 <!--
  * @Author: Czy
  * @Date: 2025-05-08 15:49:55
- * @FilePath: /b2b-official-website/src/components/order-record/index.vue
+ * @FilePath: /travel-business/src/components/order-record/index.vue
  *  
 -->
 <template>
@@ -234,6 +234,15 @@ const rules: Ref<SearchRule[]> = computed(() => [
     props: {
       allowClear: true,
     },
+  }, 
+  {
+    label: '外部订单号',
+    placeholder: '请输入',
+    field: 'outerOrderSerialNo',
+    type: 'Input',
+    props: {
+      allowClear: true,
+    },
   },
 ])
 
@@ -250,11 +259,11 @@ const breadcrumbRoutes = ref([
     label: 'homeIcon',
   },
   {
-    path: '/hotel',
+    path: '#/order-center',
     label: '首页',
   },
   {
-    path: '#/order-center?activityId=3',
+    path: '#/order-center',
     label: '账单管理',
   },
   {

@@ -9,7 +9,7 @@
             </BreadcrumbItem>
             <BreadcrumbItem
               class="text-[#999A9F] cursor-pointer hover:!text-[#fff]"
-              @click="() => router.push('/hotel')"
+              @click="() => router.push('/order-center')"
             >
               首页
             </BreadcrumbItem>
@@ -64,7 +64,7 @@
                 :key="item.thumbnailUrl"
               >
                 <Image
-                  :src="item.thumbnailUrl || 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/img-empty.png'"
+                  :src="item.thumbnailUrl || 'https://hx-mp-res.hitrips.cn/b2b-official-website/img-empty.png'"
                   fit="cover"
                   width="100%"
                   height="100%"
@@ -165,7 +165,7 @@
               >
                 <div class="w-[326px] h-[230px] overflow-hidden rounded-[16px]">
                   <Image
-                    :src="getRoomImage(room.b2bRoomTypeId)[0]?.normalUrl || 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/img-empty.png'"
+                    :src="getRoomImage(room.b2bRoomTypeId)[0]?.normalUrl || 'https://hx-mp-res.hitrips.cn/b2b-official-website/img-empty.png'"
                     fit="cover"
                     width="100%"
                     height="100%"
@@ -177,7 +177,7 @@
                   <PhotoWallModal :images="getRoomImage(room.b2bRoomTypeId)">
                     <div class="flex items-center gap-[4px] h-[24px]">
                       <img
-                        src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/none.png"
+                        src="https://hx-mp-res.hitrips.cn/b2b-official-website/none.png"
                         alt=""
                       />
                       <div class="leading-[14px]">
@@ -221,7 +221,7 @@
                           <div class="flex-1 grid grid-cols-3 gap-y-[14px] gap-x-[14px]">
                             <div class="flex items-center gap-[8px]">
                               <img
-                                :src="`https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/${item.breakfast.indexOf('无') === -1 ? 'reserve-active' : 'reserve-grey'}.png`"
+                                :src="`https://hx-mp-res.hitrips.cn/b2b-official-website/${item.breakfast.indexOf('无') === -1 ? 'reserve-active' : 'reserve-grey'}.png`"
                                 alt=""
                               />
                               <span :class="[item.breakfast.indexOf('无') === -1 ? 'text-[#05506D]' : 'text-[#767675]']">
@@ -298,7 +298,7 @@
         <!-- 酒店介绍 -->
         <div class="flex items-center mb-[44px] relative overflow-hidden">
           <Image
-            src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/introduce.png"
+            src="https://hx-mp-res.hitrips.cn/b2b-official-website/introduce.png"
             fit="cover"
             width="28px"
             height="28px"
@@ -373,7 +373,7 @@
         <!-- 订房必读 -->
         <div class="flex items-center mb-[54px] pt-[16px] relative">
           <Image
-            src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/read.png"
+            src="https://hx-mp-res.hitrips.cn/b2b-official-website/read.png"
             fit="cover"
             width="28px"
             height="28px"
@@ -424,7 +424,7 @@
         <!-- 入住政策 -->
         <div class="flex items-center mb-[54px] pt-[16px] relative overflow-hidden">
           <Image
-            src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/check-in-policy.png"
+            src="https://hx-mp-res.hitrips.cn/b2b-official-website/check-in-policy.png"
             fit="cover"
             width="28px"
             height="28px"
@@ -454,7 +454,7 @@
         <template v-if="baseFacility.length > 0">
           <div class="flex items-center mb-[54px] pt-[16px] relative overflow-hidden">
             <Image
-              src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/services-amenities.png"
+              src="https://hx-mp-res.hitrips.cn/b2b-official-website/services-amenities.png"
               fit="cover"
               width="24px"
               height="24px"
@@ -486,7 +486,7 @@
         <template v-if="serviceFacility.length > 0">
           <div class="flex items-center mb-[54px] pt-[16px] relative overflow-hidden">
             <Image
-              src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/services-amenities.png"
+              src="https://hx-mp-res.hitrips.cn/b2b-official-website/services-amenities.png"
               fit="cover"
               width="24px"
               height="24px"
@@ -593,7 +593,7 @@ const coverImage = computed(() => {
   if (cover.length === 0 && imagesList?.length) {
     cover = [imagesList[imagesList.length - 1]]
   }
-  return cover?.[0]?.fullUrl || 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/img-empty.png'
+  return cover?.[0]?.fullUrl || 'https://hx-mp-res.hitrips.cn/b2b-official-website/img-empty.png'
 })
 
 const category = ref([
@@ -785,7 +785,7 @@ onMounted(() => {
     height: 339px;
     content: '';
     display: block;
-    background-image: url('https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/hotel-bg.png');
+    background-image: url('https://hx-mp-res.hitrips.cn/b2b-official-website/hotel-bg.png');
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -826,7 +826,7 @@ onMounted(() => {
   }
 }
 .custom-start-bg {
-  background-image: url('https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/start-bg-2.png');
+  background-image: url('https://hx-mp-res.hitrips.cn/b2b-official-website/start-bg-2.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

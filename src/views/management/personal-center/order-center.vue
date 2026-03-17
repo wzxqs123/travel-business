@@ -1,5 +1,21 @@
 <template>
   <div>
+    <div class="grid grid-cols-3 gap-[16px] mb-[14px]">
+      <div
+        v-for="statistic in statistics"
+        :key="statistic.name"
+        class="statistics-item"
+      >
+        <div class="flex items-center mb-[4px]">
+          <div class="text-[#2F2F2F] text-[14px]">{{ statistic.name }}</div>
+        </div>
+        <Statistic
+          :value="statistic.price"
+          :precision="2"
+        />
+        <span class="ml-[6px]">元</span>
+      </div>
+    </div>
     <!-- 搜索表单组件，包含日期类型选择和日期范围选择 -->
     <SearchForm
       :rules="rules"
@@ -17,7 +33,7 @@
             <Select
               v-model="twoForm.dateType"
               placeholder="日期类型"
-              style="width: 100px; margin-left: -14px"
+              style="width: 100px; margin-left: -12px"
             >
               <Option
                 v-for="date in dateArrOptions"
@@ -69,7 +85,7 @@
       <template v-else>
         <div class="flex flex-col items-center justify-center w-full py-[85px]">
           <img
-            src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/order-list-empty.png"
+            src="https://hx-mp-res.hitrips.cn/b2b-official-website/order-list-empty.png"
             alt=""
             class="w-[208px] h-[208px]"
           />
@@ -89,13 +105,13 @@
 </template>
 
 <script lang="ts" setup>
-import { Tabs, Spin, TabPane, Col, Select, Option, RangePicker, Pagination } from '@arco-design/web-vue'
+import { Tabs, Spin, TabPane, Col, Statistic, Select, Option, RangePicker, Pagination } from '@arco-design/web-vue'
 import { SearchForm, SearchRule } from '@/components/search-form'
 import OrderItem from './components/order-item.vue'
 import { useHotelOrder, OrderListRequest, B2BHotelOrderVO } from '@/composable/order/order'
 
 // 获取酒店订单列表的函数
-const { getHotelOrderList } = useHotelOrder()
+const { getHotelOrderList, getAmountStat } = useHotelOrder()
 
 // 表单数据
 const form = ref<Partial<OrderListRequest>>({})
@@ -150,6 +166,15 @@ const rules: Ref<SearchRule[]> = computed(() => [
       allowClear: true,
     },
   },
+  {
+    label: '外部订单号',
+    placeholder: '请输入外部订单号',
+    field: 'outerOrderSerialNo',
+    type: 'Input',
+    props: {
+      allowClear: true,
+    },
+  },
 ])
 
 // 标签页选项
@@ -197,7 +222,7 @@ const queryList = () => {
       listData.total = res.total
       listData.list = res.rows
     })
-    .finally(() => (loading.value = false))
+    .finally(() => ((loading.value = false), getAmountStatFun()))
 }
 
 // 分页事件处理函数
@@ -210,6 +235,24 @@ const handlePageChange = (current: number) => {
 onMounted(() => {
   queryList()
 })
+
+const getAmountStatFun = () => {
+  getAmountStat({ dateRange: twoForm.value.dateRange, dateType: twoForm.value.dateType }).then((res) => {
+    // console.log('res',res.data);
+    statistics.value[0].price = res.data.totalPayAmount / 100 || 0
+    statistics.value[1].price = res.data.totalRefundAmount / 100 || 0
+  })
+}
+const statistics = ref([
+  {
+    name: '订单支付金额',
+    price: 0,
+  },
+  {
+    name: '订单退款金额',
+    price: 0,
+  },
+])
 </script>
 
 <style lang="less" scoped>
@@ -262,5 +305,42 @@ onMounted(() => {
   border: 1px solid #d3d9e0;
   border-radius: 4px;
   background: #fff;
+}
+
+.statistics-item {
+  padding: 24px 30px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: -1px;
+    width: 4px;
+    height: 18px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  &:nth-child(1) {
+    border-color: rgba(54, 98, 236, 0.4);
+    &::after {
+      background-color: #3662ec;
+    }
+  }
+  &:nth-child(2) {
+    border-color: rgba(7, 185, 185, 0.4);
+    &::after {
+      background-color: #07b9b9;
+    }
+  }
+  &:nth-child(3) {
+    border-color: rgba(255, 93, 21, 0.4);
+    &::after {
+      background-color: #ff5d15;
+    }
+  }
 }
 </style>

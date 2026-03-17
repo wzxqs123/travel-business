@@ -11,8 +11,9 @@
         <template #split>
           <Divider direction="vertical" />
         </template>
-        <span>订单号：{{ props.orderInfo.id }}</span>
-        <span>预订日期：{{ props.orderInfo.bookTime }}</span>
+        <span>订单号：{{ props.orderInfo.id||'-'  }}</span>
+        <span>外部订单号：{{ props.orderInfo.outerOrderSerialNo||'-' }}</span>
+        <span>预订日期：{{ props.orderInfo.bookTime||'-'  }}</span>
       </Space>
     </div>
     <div
@@ -20,7 +21,7 @@
       @click="goOrderDetail"
     >
       <img
-        src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/case-pic-3.png"
+        src="https://hx-mp-res.hitrips.cn/b2b-official-website/case-pic-3.png"
         mode="scaleToFill"
         class="w-[120px] h-[118px] rounded-[8px] mr-[12px]"
       />

@@ -33,7 +33,7 @@
       <div class="bg-[#fff] w-[504px] rounded-[16px] p-[30px] custom-trigger">
         <div class="mb-[20px] flex items-center -ml-[8px]">
           <Image
-            src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/hot.png"
+            src="https://hx-mp-res.hitrips.cn/b2b-official-website/hot.png"
             alt=""
           />
           <span class="font-bold text-[18px]"> 热门城市 </span>
@@ -93,7 +93,7 @@
           >
             <div class="flex items-center">
               <Image
-                src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/position.png"
+                src="https://hx-mp-res.hitrips.cn/b2b-official-website/position.png"
                 mode="scaleToFill"
               />
               <div class="ml-[10px] text-[16px]">

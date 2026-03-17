@@ -1,7 +1,7 @@
 /*
  * @Author: Czy
  * @Date: 2025-01-20 17:24:58
- * @FilePath: /b2b-official-website/src/router/index.ts
+ * @FilePath: /travel-business/src/router/index.ts
  *
  */
 
@@ -18,7 +18,7 @@ const router = createRouter({
           path: '',
           name: 'Index',
           component: () => import('@/views/index/index.vue'),
-          meta: { title: '首页', isNoLoginPage: true },
+          meta: { title: '差旅管家登录', isNoLoginPage: true },
         },
         {
           path: 'buyer-register',
@@ -79,6 +79,12 @@ const router = createRouter({
           name: 'FinanceReconciliation',
           component: () => import('@/views/management/personal-center/index.vue'),
           meta: { title: '财务对账' },
+        },
+        {
+          path: 'enterprise-wallet',
+          name: 'EnterpriseWallet',
+          component: () => import('@/views/management/personal-center/index.vue'),
+          meta: { title: '企业钱包' },
         },
         // {
         //   path: 'order-record',

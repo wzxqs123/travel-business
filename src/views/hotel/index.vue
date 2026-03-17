@@ -10,7 +10,7 @@
         class="flex justify-center w-full"
       >
         <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/b2b-loading.gif"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/b2b-loading.gif"
           alt=""
           class="w-[114px] h-[114px]"
         />
@@ -38,7 +38,7 @@
             >
               <div class="h-[190px] overflow-hidden rounded-[20px]">
                 <Image
-                  :src="item.frontImg || 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/img-empty.png'"
+                  :src="item.frontImg || 'https://hx-mp-res.hitrips.cn/b2b-official-website/img-empty.png'"
                   fit="cover"
                   height="100%"
                   width="100%"
@@ -67,7 +67,7 @@
         <div v-else>
           <div class="flex flex-col items-center justify-center w-full py-[85px]">
             <img
-              src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/order-list-empty.png"
+              src="https://hx-mp-res.hitrips.cn/b2b-official-website/order-list-empty.png"
               alt=""
               class="w-[208px] h-[208px]"
             />
@@ -162,7 +162,7 @@ onMounted(() => {
   }
   .img-wrap {
     height: 400px;
-    background-image: url('https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/hotel-bg.png');
+    background-image: url('https://hx-mp-res.hitrips.cn/b2b-official-website/hotel-bg.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

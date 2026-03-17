@@ -38,7 +38,7 @@
             :size="30"
           ></Spin> -->
           <img
-            src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/b2b-loading.gif"
+            src="https://hx-mp-res.hitrips.cn/b2b-official-website/b2b-loading.gif"
             alt=""
             class="w-[114px] mx-auto mt-[114px]"
             v-show="loading"
@@ -61,7 +61,7 @@
           >
             <div class="flex items-center">
               <Image
-                src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/position.png"
+                src="https://hx-mp-res.hitrips.cn/b2b-official-website/position.png"
                 mode="scaleToFill"
               />
               <!-- <div class="ml-[10px] text-[16px]">

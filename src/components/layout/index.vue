@@ -9,9 +9,9 @@
     class="layout"
     @click="searchStore.closeAllTrigger()"
   >
-    <LoginHeader v-if="userStore.isLogon && userStore.buyerRegisterStatus === '1'"></LoginHeader>
+    <LoginHeader v-if="userStore.isLogon && router.currentRoute.value.path != '/'"></LoginHeader>
     <NoLoginHeader
-      v-if="!userStore.isLogon || userStore.buyerRegisterStatus !== '1'"
+      v-if="!userStore.isLogon || router.currentRoute.value.path == '/'"
       :routerPath="routerPath"
       @setScroll="setScroll"
     ></NoLoginHeader>
@@ -32,7 +32,6 @@
             :is="Component"
           />
         </RouterView>
-        <Footer v-if="userStore.isLogon && userStore.buyerRegisterStatus === '1'"></Footer>
       </LayoutContent>
     </Scrollbar>
 
@@ -43,87 +42,12 @@
     >
       <div class="fixed bottom-[50px] right-[32px] w-[50px] h-[50px] rounded-full">
         <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/scroll-top.png"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/scroll-top.png"
           alt=""
           class="w-full h-full"
         />
       </div>
     </BackTop>
-    <div
-      v-if="userStore.isLogon && userStore.buyerRegisterStatus === '1'"
-      class="absolute bottom-[120px] right-[12px] z-[99]"
-    >
-      <Trigger
-        position="lb"
-        :popup-translate="[0, 80]"
-        auto-fit-position
-        :unmount-on-close="false"
-      >
-        <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/customer-service.png"
-          alt=""
-          class="w-[90px]"
-        />
-        <template #content>
-          <div class="w-[300px] pt-[25px] pb-[15px] px-[18px] bg-[#fff] rounded-[18px] customer-service-pop">
-            <div class="flex items-center mb-[25px]">
-              <img
-                src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/default-service-avatar.png"
-                alt=""
-                class="w-[44px] h-[44px] mr-[6px]"
-              />
-              <div>
-                <div class="mb-[6px] text-[#2F2F2F] text-[20px] font-[500] leading-[20px]">
-                  {{ userStore.customerDetail?.title || '联系嗨行' }}
-                </div>
-                <div class="text-[#767675] text-[16px] font-[400] leading-[16px]">
-                  {{ userStore.customerDetail?.description || '出行、订酒店、定制请联系' }}
-                </div>
-              </div>
-            </div>
-            <div class="flex flex-col items-center pt-[20px] pb-[8px] border-[2px] border-solid border-[#fff] rounded-[20px] customer-service-pop-com">
-              <div class="qr-code-com-bg mb-[14px]">
-                <div class="overflow-hidden p-[10px] bg-[#EEFFF7] rounded-[20px]">
-                  <img
-                    :src="userStore.customerDetail?.weworkQrCodeUrl || userStore.customerDetail?.wechatQrCodeUrl || 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/service-qr-code.jpg'"
-                    alt=""
-                    class="w-[160px] h-[160px]]"
-                  />
-                </div>
-              </div>
-              <div>
-                <div
-                  v-if="userStore.customerDetail?.phone"
-                  class="flex items-center pb-[6px]"
-                >
-                  <img
-                    src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/blue-phone.png"
-                    alt=""
-                    class="w-[18px] h-[18px]"
-                  />
-                  <div class="ml-[8px]">
-                    {{ userStore.customerDetail?.phone }}
-                  </div>
-                </div>
-                <div
-                  v-if="userStore.customerDetail?.tel"
-                  class="flex items-center pb-[6px]"
-                >
-                  <img
-                    src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/blue-phone.png"
-                    alt=""
-                    class="w-[18px] h-[18px]"
-                  />
-                  <div class="ml-[8px]">
-                    {{ userStore.customerDetail?.tel }}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </template>
-      </Trigger>
-    </div>
   </Layout>
 </template>
 <script setup lang="ts">

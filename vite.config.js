@@ -1,7 +1,7 @@
 /*
  * @Author: Czy
  * @Date: 2025-01-20 10:53:35
- * @FilePath: /b2b-official-website/vite.config.js
+ * @FilePath: /travel-business/vite.config.js
  *
  */
 import { defineConfig } from 'vite'
@@ -11,8 +11,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 // import PrerenderSpaPlugin from "prerender-spa-plugin";
 // import path from "path";
 // https://vite.dev/config/
-var proxyUrl = 'https://b2b-gw.qc.arltr.cn'
-const proxyUrlZS = 'https://b2b.hitrips.cn'
+var proxyUrl = 'http://b2b-gw.qc.arltr.cn'
+const proxyUrlZS = 'http://sztripwise.hoimore.com'
 // const testUrl = 'https://b2b-website.qc.arltr.cn'
 // const testUrl = 'http://192.168.10.144:8080'
 const testUrl = 'http://127.0.0.1:4523/m1/5755873-5439120-6db2620e'
@@ -50,7 +50,7 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         modifyVars: {
-          'arcoblue-6': '#00D7E5',
+          'arcoblue-6': '#165DFF',
           'primary-6': 'rgb(var(--arcoblue-6))',
           'primary-color': 'rgb(var(--arcoblue-6))',
           'success-color': 'rgb(var(--green-6))',

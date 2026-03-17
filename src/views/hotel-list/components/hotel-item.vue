@@ -12,7 +12,7 @@
     >
       <div class="shrink-0 w-[280px] h-[154px] mr-[28px] rounded-[20px] overflow-hidden">
         <Image
-          :src="item.frontImg || 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/img-empty.png'"
+          :src="item.frontImg || 'https://hx-mp-res.hitrips.cn/b2b-official-website/img-empty.png'"
           fit="cover"
           height="100%"
           width="100%"
@@ -101,7 +101,7 @@ const handleDetail = (record: HotelBaseList) => {
   }
 }
 .custom-bg {
-  background-image: url('https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/star-bg.png');
+  background-image: url('https://hx-mp-res.hitrips.cn/b2b-official-website/star-bg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

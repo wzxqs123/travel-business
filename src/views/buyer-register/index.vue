@@ -242,7 +242,7 @@
           <div class="flex flex-col items-center">
             <img
               class="w-[88px] h-[70px] mb-[15px]"
-              src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/under-review.png"
+              src="https://hx-mp-res.hitrips.cn/b2b-official-website/under-review.png"
               alt=""
             />
             <div class="text-[#2F2F2F] text-[18px] leading-[22px] mb-[36px]">正在审核</div>
@@ -257,7 +257,7 @@
     >
       <img
         class="w-[100%] h-[100vh]"
-        src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/buyer-register-bg.jpg"
+        src="https://hx-mp-res.hitrips.cn/b2b-official-website/buyer-register-bg.jpg"
         alt=""
       />
     </div>
@@ -322,7 +322,7 @@ const getCompanyInfoFunction = () => {
       userStore.setBuyerRegisterStatus(res.data?.status)
       userStore.setCompanyInfo(res.data)
       if (res.data?.status === AccountStatus.NORMAL) {
-        router.push('/hotel')
+        router.push('/order-center')
       } else {
         isShowPage.value = true
         if (res.data?.status === AccountStatus.BAN) {
@@ -424,7 +424,7 @@ onMounted(() => {
     width: 100%;
     height: 100vh;
     padding-top: 96px;
-    background-image: url('https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/login-b2b/background-image.png');
+    background-image: url('https://hx-mp-res.hitrips.cn/login-b2b/background-image.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

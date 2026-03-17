@@ -18,10 +18,10 @@ build:
   script:
     - pnpm install --no-frozen-lockfile --ignore-scripts
     - pnpm run build
-b2b-official-website:
+travel-business-app:
   stage: package
   variables:
-    PROJECT_NAME: 'b2b-official-website'
+    PROJECT_NAME: 'travel-business-app'
   trigger:
     include: build/.gitlab-ci.yml
     strategy: depend

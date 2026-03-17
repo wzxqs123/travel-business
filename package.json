@@ -1,7 +1,7 @@
 {
-  "name": "b2b-official-website",
+  "name": "travel-business-app",
   "private": true,
-  "version": "1.0.37",
+  "version": "1.0.24",
   "type": "module",
   "scripts": {
     "dev": "vite",

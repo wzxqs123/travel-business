@@ -16,7 +16,7 @@
       @click="visible = false"
     >
       <Image
-        src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/closeBtn.png"
+        src="https://hx-mp-res.hitrips.cn/b2b-official-website/closeBtn.png"
         fit="cover"
         width="30px"
         height="30px"
@@ -79,7 +79,7 @@
           v-else
         >
           <Image
-            src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/img-empty.png"
+            src="https://hx-mp-res.hitrips.cn/b2b-official-website/img-empty.png"
             fit="cover"
             width="100%"
             height="100%"
@@ -100,7 +100,7 @@
                 v-if="roomDetail.roomArea"
               >
                 <Image
-                  src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/area.png"
+                  src="https://hx-mp-res.hitrips.cn/b2b-official-website/area.png"
                   fit="cover"
                   width="20px"
                   height="20px"
@@ -114,7 +114,7 @@
                 v-if="getFacility(roomDetail.facilities || [], 1378)"
               >
                 <Image
-                  src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/wifi-square.png"
+                  src="https://hx-mp-res.hitrips.cn/b2b-official-website/wifi-square.png"
                   fit="cover"
                   width="20px"
                   height="20px"
@@ -130,7 +130,7 @@
                 v-if="getFacility(roomDetail.facilities || [], 904)"
               >
                 <Image
-                  src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/smoke.png"
+                  src="https://hx-mp-res.hitrips.cn/b2b-official-website/smoke.png"
                   fit="cover"
                   width="20px"
                   height="20px"
@@ -145,7 +145,7 @@
                 v-if="roomDetail.floor"
               >
                 <Image
-                  src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/floor.png"
+                  src="https://hx-mp-res.hitrips.cn/b2b-official-website/floor.png"
                   fit="cover"
                   width="20px"
                   height="20px"
@@ -158,7 +158,7 @@
                 v-if="roomDetail.windowType"
               >
                 <Image
-                  src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/window.png"
+                  src="https://hx-mp-res.hitrips.cn/b2b-official-website/window.png"
                   fit="cover"
                   width="20px"
                   height="20px"
@@ -178,7 +178,7 @@
                 v-if="roomDetail.capacity"
               >
                 <Image
-                  src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/user-square.png"
+                  src="https://hx-mp-res.hitrips.cn/b2b-official-website/user-square.png"
                   fit="fill"
                   width="20px"
                   height="20px"
@@ -191,7 +191,7 @@
                 v-if="roomDetail.bedType"
               >
                 <Image
-                  src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/slider.png"
+                  src="https://hx-mp-res.hitrips.cn/b2b-official-website/slider.png"
                   fit="fill"
                   width="20px"
                   height="20px"

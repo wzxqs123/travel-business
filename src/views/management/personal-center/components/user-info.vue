@@ -38,7 +38,7 @@
     <div class="bg-[#F8F8FA] box-border min-w-[320px] mt-[20px] mr-[20px] px-[24px] py-[15px] flex items-center justify-between flex-1 rounded-[6px]">
       <div class="flex">
         <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/update-email.png"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/update-email.png"
           mode="scaleToFill"
           class="w-[44px] h-[40px]"
         />
@@ -60,7 +60,7 @@
     <div class="bg-[#F8F8FA] box-border min-w-[320px] mt-[20px] mr-[20px] px-[24px] py-[15px] flex items-center justify-between flex-1 rounded-[6px]">
       <div class="box-border flex truncate">
         <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/update-password.png"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/update-password.png"
           mode="scaleToFill"
           class="w-[44px] h-[40px]"
         />
@@ -162,7 +162,7 @@
         v-else
       >
         <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/reminder-icon.png"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/reminder-icon.png"
           alt=""
           class="w-[23px] h-[23px] cursor-pointer"
         />
@@ -178,7 +178,7 @@
         v-else
       >
         <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/reminder-icon.png"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/reminder-icon.png"
           alt=""
           class="w-[23px] h-[23px] cursor-pointer"
         />

@@ -7,23 +7,23 @@
       :outer-style="{ height: '100%' }"
       style="width: 100%; height: 100%; overflow-x: auto"
     >
-      <div class="flex justify-between items-center min-w-[980px] w-[1440px] h-full mx-[auto]">
+      <div class="flex justify-between items-center min-w-[980px] px-[10px] h-full mx-[auto]">
         <img
           v-if="navIsOpacity && !headClassChange"
           class="w-[146px] cursor-pointer"
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/logo-white.png"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/logo-white.png"
           alt="logo"
           @click="goHome"
         />
         <img
           v-else
-          class="w-[146px] cursor-pointer"
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/logo-blue.png"
+          class="w-[164px] cursor-pointer"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/tripwise-logo.png"
           alt="logo"
           @click="goHome"
         />
         <div class="flex items-center">
-          <div
+          <!-- <div
             v-for="(navItem, navIndex) in navList"
             :key="navIndex"
             class="flex mx-[20px] text-[16px] leading-[22px] cursor-pointer hover:text-[#00D7E5]"
@@ -41,7 +41,7 @@
           <div
             class="w-[1px] h-[21px] mx-[55px]"
             :class="navIsOpacity && !headClassChange ? 'bg-[rgba(255,255,255,0.5)]' : 'bg-[#767675]'"
-          ></div>
+          ></div> -->
           <!-- <div class="ml-[20px]">
           <Popover content-class="px-[0] rounded-[8px]">
             <Badge
@@ -54,8 +54,8 @@
                 class="w-[22px] h-[22px]"
                 :src="
                   navIsOpacity && !headClassChange
-                    ? 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/message-notification-white.png'
-                    : 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/message-notification.png'
+                    ? 'https://hx-mp-res.hitrips.cn/b2b-official-website/message-notification-white.png'
+                    : 'https://hx-mp-res.hitrips.cn/b2b-official-website/message-notification.png'
                 "
                 alt="message"
               />
@@ -94,7 +94,7 @@
                   <div class="relative mt-[4px] mr-[12px]">
                     <img
                       class="w-[36px] h-[36px] block"
-                      src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/blue-bg-logo.png"
+                      src="https://hx-mp-res.hitrips.cn/b2b-official-website/blue-bg-logo.png"
                       alt=""
                     />
                     <div
@@ -156,7 +156,7 @@
                 />
               </div>
               <template #content>
-                <div
+                <!-- <div
                   class="w-[104px] h-[32px] mb-[2px] leading-[32px] text-center text-[#2F2F2F] text-[16px] cursor-pointer hover:bg-[#F3F4F8] last:mb-[0]"
                   @click="onPersonalCenter"
                 >
@@ -173,7 +173,7 @@
                   @click="onFinancialReconciliation"
                 >
                   财务对账
-                </div>
+                </div> -->
                 <!-- <div
                 class="w-[104px] h-[32px] mb-[2px] leading-[32px] text-center text-[#2F2F2F] text-[16px] cursor-pointer hover:bg-[#F3F4F8] last:mb-[0]"
               >
@@ -209,68 +209,14 @@ const userStore = useUserStore()
 const { getInfo } = useAccount()
 const headClassChange = ref(false)
 const navIsOpacity = ref(false)
-const navList = ref([
-  {
-    name: '酒店',
-    id: 'Hotel',
-    url: '/hotel',
-  },
-  {
-    name: '开放平台',
-    id: 'ApiCallInstructions',
-    url: '/api-call-instructions',
-    iconUrl: 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/outside-the-chain.png',
-  },
-  {
-    name: '订单中心',
-    id: 'OrderCenter',
-    url: '/order-center?activityId=2',
-  },
-])
-const messageNum = ref(99)
-const tabList = ref([
-  {
-    name: '全部',
-    id: 'allMessage',
-  },
-  {
-    name: '酒店',
-    id: 'hotelMessage',
-  },
-])
-const selTabItem = ref('allMessage')
 const logoutModalRef = ref()
 
-const onTapNav = (id: string, url: string) => {
-  if (id !== 'ApiCallInstructions') {
-    const oldId = userStore.navSelLogoned
-    userStore.setNavSel(id)
-
-    if (oldId !== userStore.navSelLogoned) {
-      router.push({ path: url })
-    }
-  } else {
-    window.open('https://hixtrip-b2b-open-api.apifox.cn/')
-  }
-}
 const logout = () => {
   logoutModalRef.value.openVisible()
 }
 const goHome = () => {
   userStore.setNavSel('Hotel')
-  router.push('/hotel')
-}
-const onPersonalCenter = () => {
-  userStore.setNavSel('PersonalCenter')
-  router.push('/personal-center')
-}
-const onOrderCenter = () => {
-  userStore.setNavSel('OrderCenter')
-  router.push('/order-center?activityId=2')
-}
-const onFinancialReconciliation = () => {
-  userStore.setNavSel('FinancialReconciliation')
-  router.push('/finance-reconciliation?activityId=3')
+  router.push('/order-center')
 }
 const initNavSel = () => {
   nextTick(() => {
@@ -312,7 +258,7 @@ watch(
   () => {
     nextTick(() => {
       if (route.path == '/') {
-        router.push('/hotel')
+        router.push('/order-center')
       }
     })
   }

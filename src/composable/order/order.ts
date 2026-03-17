@@ -22,9 +22,12 @@ export const useHotelOrder = () => {
       params,
     })
   }
-
+   // 查询酒店订单金额统计
+   const getAmountStat = (params: {dateRange?:any,dateType?:number}) => {
+    return fetch.post<Result<{totalPayAmount:number,totalRefundAmount:number}>>(`/app/${ORDER_GATEWAY}/query/b2b/hotel-order/amount-stat`, params)
+  }
   return {
     getHotelOrderList,
-    getHotelDetail,
+    getHotelDetail,getAmountStat
   }
 }

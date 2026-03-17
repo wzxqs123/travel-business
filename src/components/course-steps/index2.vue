@@ -7,9 +7,7 @@
     </div>
 
     <div class="box-border pt-[30px] pl-[160px] mb-[58px]">
-      <div class="mb-[5px] font-bold text-[50px] text-[#1A1A1A] leading-[70px]">
-        企业历程
-      </div>
+      <div class="mb-[5px] font-bold text-[50px] text-[#1A1A1A] leading-[70px]">企业历程</div>
 
       <div class="text-[#D6DDE3] text-[28px] leading-[40px]">Course</div>
     </div>
@@ -33,18 +31,13 @@
         <div
           :data-index="index"
           class="relative flex flex-col items-center mx-[0px] mx-[-14px] step-item"
-          v-if="
-            !(
-              (isAnimatingLeft && index == 0) ||
-              (isAnimatingRight && index == displayedItems.length - 1)
-            )
-          "
+          v-if="!((isAnimatingLeft && index == 0) || (isAnimatingRight && index == displayedItems.length - 1))"
         >
           <div
             class="text-[20px] mb-[10px] w-[44px]"
             v-if="item?.year != selectedYear"
           >
-            {{ item?.year || "" }}
+            {{ item?.year || '' }}
           </div>
 
           <div
@@ -53,7 +46,7 @@
             @click="item && handleStepClick(item)"
           >
             <div v-if="item?.year == selectedYear">
-              {{ item?.year || "" }}
+              {{ item?.year || '' }}
             </div>
           </div>
         </div>
@@ -77,9 +70,7 @@
           <IconLeft :size="28" />
         </div>
 
-        <div
-          class="w-[570px] pt-[23px] leading-[40px] text-[#2F2F2F] text-[26px] text-center"
-        >
+        <div class="w-[570px] pt-[23px] leading-[40px] text-[#2F2F2F] text-[26px] text-center">
           {{ getDescription(selectedYear) }}
         </div>
 
@@ -98,37 +89,33 @@
 // 新增样式计算方法
 
 const getStepClass = (item: any) => {
-  if (!item) return "bg-[#C7C7C7] cursor-default";
+  if (!item) return 'bg-[#C7C7C7] cursor-default'
 
-  return item.year === selectedYear.value
-    ? "bg-[#00D7E5] cursor-pointer active-step-indicator mx-[-12px]"
-    : "bg-[#00D7E5] hover:shadow-[0_0_2px_7px_rgba(207,207,207,0.2)] cursor-pointer";
-};
+  return item.year === selectedYear.value ? 'bg-[#00D7E5] cursor-pointer active-step-indicator mx-[-12px]' : 'bg-[#00D7E5] hover:shadow-[0_0_2px_7px_rgba(207,207,207,0.2)] cursor-pointer'
+}
 
 const onSwitch = (type: string) => {
-  const currentIndex = props.courseArr.findIndex(
-    (item: any) => item.year === selectedYear.value
-  );
+  const currentIndex = props.courseArr.findIndex((item: any) => item.year === selectedYear.value)
 
-  if (type == "left" && currentIndex != 0) {
-    isAnimatingRight.value = true;
+  if (type == 'left' && currentIndex != 0) {
+    isAnimatingRight.value = true
     setTimeout(() => {
-      selectedYear.value = props.courseArr[currentIndex - 1].year;
-      isAnimatingRight.value = false;
-    }, 500); // 动画持续时间
-  } else if (type == "right" && currentIndex != props.courseArr.length - 1) {
-    isAnimatingLeft.value = true;
+      selectedYear.value = props.courseArr[currentIndex - 1].year
+      isAnimatingRight.value = false
+    }, 500) // 动画持续时间
+  } else if (type == 'right' && currentIndex != props.courseArr.length - 1) {
+    isAnimatingLeft.value = true
     setTimeout(() => {
-      selectedYear.value = props.courseArr[currentIndex + 1].year;
-      isAnimatingLeft.value = false;
-    }, 500); // 动画持续时间
+      selectedYear.value = props.courseArr[currentIndex + 1].year
+      isAnimatingLeft.value = false
+    }, 500) // 动画持续时间
   }
-};
+}
 
 const getLineClass = (item: any, index: number) => {
   // const currentItem = displayedItems.value[index];
 
-  const nextItem = displayedItems.value[index + 1];
+  const nextItem = displayedItems.value[index + 1]
 
   // console.log('zzzzzz',);
 
@@ -139,62 +126,59 @@ const getLineClass = (item: any, index: number) => {
   // nextItem?.year === selectedYear.value
 
   if (item && nextItem) {
-    return "bg-gradient-blue";
+    return 'bg-gradient-blue'
   }
 
-  return "bg-gradient-gray";
-};
+  return 'bg-gradient-gray'
+}
 
-const props = defineProps<{ courseArr: any }>();
+const props = defineProps<{ courseArr: any }>()
 
-const selectedYear = ref(2024);
+const selectedYear = ref(2024)
 
 // 始终显示5个时间节点
 
 const displayedItems = computed(() => {
-  const currentIndex = props.courseArr.findIndex(
-    (item: any) => item.year === selectedYear.value
-  );
+  const currentIndex = props.courseArr.findIndex((item: any) => item.year === selectedYear.value)
 
-  const result = [];
+  const result = []
 
   for (let offset = -2; offset <= 2; offset++) {
-    const targetIndex = currentIndex + offset;
+    const targetIndex = currentIndex + offset
 
-    result.push(props.courseArr[targetIndex] || null);
+    result.push(props.courseArr[targetIndex] || null)
   }
 
-  return result;
-});
-const isAnimatingLeft = ref(false);
-const isAnimatingRight = ref(false);
+  return result
+})
+const isAnimatingLeft = ref(false)
+const isAnimatingRight = ref(false)
 const getDescription = (year: number | string) => {
-  const foundYear = props.courseArr.find((y: any) => y.year === year);
-  return foundYear ? foundYear.description : "";
-};
+  const foundYear = props.courseArr.find((y: any) => y.year === year)
+  return foundYear ? foundYear.description : ''
+}
 const handleStepClick = (item: any) => {
-  let newYear = item.year;
+  let newYear = item.year
 
   if (item) {
     if (newYear > selectedYear.value) {
-      isAnimatingLeft.value = true;
+      isAnimatingLeft.value = true
     } else {
-      isAnimatingRight.value = true;
+      isAnimatingRight.value = true
     }
 
     setTimeout(() => {
-      selectedYear.value = item.year;
-      isAnimatingLeft.value = false;
-      isAnimatingRight.value = false;
-    }, 500); // 动画持续时间
+      selectedYear.value = item.year
+      isAnimatingLeft.value = false
+      isAnimatingRight.value = false
+    }, 500) // 动画持续时间
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
 .course {
-  background: url("https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/course-bg.png")
-    0 0 no-repeat;
+  background: url('https://hx-mp-res.hitrips.cn/b2b-official-website/course-bg.png') 0 0 no-repeat;
 
   background-size: auto 100%;
   .step-item {
@@ -239,21 +223,13 @@ const handleStepClick = (item: any) => {
   // 新增渐变样式
 
   .bg-gradient-blue {
-    background: linear-gradient(
-      270deg,
-      rgba(0, 215, 229, 1),
-      rgba(231, 255, 211, 0.7)
-    );
+    background: linear-gradient(270deg, rgba(0, 215, 229, 1), rgba(231, 255, 211, 0.7));
 
     border-radius: 0 30px 30px 0;
   }
 
   .bg-gradient-gray {
-    background: linear-gradient(
-      270deg,
-      rgba(207, 207, 207, 1),
-      rgba(239, 239, 239, 0.7)
-    );
+    background: linear-gradient(270deg, rgba(207, 207, 207, 1), rgba(239, 239, 239, 0.7));
   }
 
   // 激活状态特殊处理
@@ -262,7 +238,7 @@ const handleStepClick = (item: any) => {
     position: relative;
 
     .star-bg {
-      background: url("https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/blue-star.png");
+      background: url('https://hx-mp-res.hitrips.cn/b2b-official-website/blue-star.png');
 
       background-size: 100% 100%;
 
@@ -311,11 +287,7 @@ const handleStepClick = (item: any) => {
 
   .first-line-bg,
   .two-line-bg {
-    background: linear-gradient(
-      270deg,
-      rgba(0, 215.0000023841858, 229.00000154972076, 1),
-      rgba(231.49336695671082, 255, 210.9955796599388, 0.699999988079071)
-    );
+    background: linear-gradient(270deg, rgba(0, 215.0000023841858, 229.00000154972076, 1), rgba(231.49336695671082, 255, 210.9955796599388, 0.699999988079071));
 
     border-radius: 30px 0 0 30px;
   }
@@ -326,21 +298,11 @@ const handleStepClick = (item: any) => {
 
   .three-line-bg,
   .four-line-bg {
-    background: linear-gradient(
-      270deg,
-      rgba(207.94642567634583, 207.94642567634583, 207.94642567634583, 1),
-      rgba(
-        239.82142567634583,
-        239.82142567634583,
-        239.82142567634583,
-        0.699999988079071
-      )
-    );
+    background: linear-gradient(270deg, rgba(207.94642567634583, 207.94642567634583, 207.94642567634583, 1), rgba(239.82142567634583, 239.82142567634583, 239.82142567634583, 0.699999988079071));
   }
 
   .blue-star {
-    background: url("https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/blue-star.png")
-      0 0 no-repeat;
+    background: url('https://hx-mp-res.hitrips.cn/b2b-official-website/blue-star.png') 0 0 no-repeat;
 
     background-size: 100% 100%;
   }
@@ -391,8 +353,7 @@ const handleStepClick = (item: any) => {
 }
 
 .active-step-indicator {
-  background: url("https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/blue-star.png")
-    0 0 no-repeat;
+  background: url('https://hx-mp-res.hitrips.cn/b2b-official-website/blue-star.png') 0 0 no-repeat;
 
   background-size: 100% 100%;
 

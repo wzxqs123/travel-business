@@ -170,7 +170,7 @@ const getDescription = (year: number | string) => {
   /* 优化动画参数 */
   //   animation: aas 2s linear forwards infinite;
 
-  background: url('https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/blue-star.png') 0 0 no-repeat;
+  background: url('https://hx-mp-res.hitrips.cn/b2b-official-website/blue-star.png') 0 0 no-repeat;
   background-size: 100% 100%;
   width: 164px;
   height: 164px;

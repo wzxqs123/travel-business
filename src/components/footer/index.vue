@@ -3,7 +3,7 @@
     <div class="max-w-[1400px] text-[#fff] mx-auto flex items-center justify-between h-full">
       <div class="basis-[260px] shrink-0">
         <img
-          src="https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/logo-white.png"
+          src="https://hx-mp-res.hitrips.cn/b2b-official-website/logo-white.png"
           alt=""
         />
         <div class="text-[#999A9F] text-[14px] mt-[21px]">
@@ -20,7 +20,7 @@
       <div class="flex items-start">
         <div class="basis-[111px] shrink-0 mr-[140px]">
           <Image
-            :src="userStore.customerDetail?.weworkQrCodeUrl || userStore.customerDetail?.wechatQrCodeUrl || 'https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/service-qr-code.jpg'"
+            :src="userStore.customerDetail?.weworkQrCodeUrl || userStore.customerDetail?.wechatQrCodeUrl || 'https://hx-mp-res.hitrips.cn/b2b-official-website/service-qr-code.jpg'"
             fit="fill"
             height="111px"
             width="111px"
@@ -36,12 +36,7 @@
               fill
             >
               <div class="text-white">产品</div>
-              <div
-                class="cursor-pointer hover:text-white"
-                @click="goInstruction"
-              >
-                开放平台
-              </div>
+
               <div
                 class="cursor-pointer hover:text-white"
                 @click="goHome"
@@ -100,7 +95,7 @@ const userStore = useUserStore()
 const router = useRouter()
 
 const goHome = () => {
-  router.push('/hotel')
+  router.push('/order-center')
 }
 
 const goInstruction = () => {
@@ -126,7 +121,7 @@ const goFilingBureau = () => {
 .custom-footer {
   min-width: 1440px;
   height: 346px;
-  background-image: url('https://hx-mp-res.obs.cn-southwest-2.myhuaweicloud.com/b2b-official-website/footer.png');
+  background-image: url('https://hx-mp-res.hitrips.cn/b2b-official-website/footer.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

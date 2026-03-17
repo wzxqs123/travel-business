@@ -57,6 +57,13 @@
         :value="record.billType"
       />
     </template>
+    <template #periodType="{ record }">
+      <DictTag
+        text
+        type="B2B_PERIOD_TYPE"
+        :value="record.periodType"
+      />
+    </template>
     <template #billState="{ record }">
       <div class="flex items-center gap-[8px]">
         <div

@@ -30,7 +30,10 @@
 <script lang="ts" setup>
 import { Modal, Button } from '@arco-design/web-vue'
 import useAuth from '@/auth/use-auth'
+import authStore from '@/auth/auth-store'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const auth = useAuth()
 const visible = ref(false)
 const openVisible = () => {
@@ -40,7 +43,8 @@ const closeModal = () => {
   visible.value = false
 }
 const logout = () => {
-  auth.logout()
+  authStore.value.token = ''
+  router.push('/')
 }
 defineExpose({
   openVisible,
